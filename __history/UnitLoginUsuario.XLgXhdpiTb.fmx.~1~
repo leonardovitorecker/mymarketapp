@@ -1,0 +1,95 @@
+inherited FrmLoginUsuario_XLgXhdpiTb: TFrmLoginUsuario_XLgXhdpiTb
+  ClientHeight = 1255
+  ClientWidth = 800
+  DesignerMasterStyle = 0
+  inherited TabControl1: TTabControl
+    Size.Width = 800.000000000000000000
+    Size.Height = 1255.000000000000000000
+    Sizes = (
+      800s
+      1255s
+      800s
+      1255s
+      800s
+      1255s)
+    inherited TabLogin: TTabItem
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      inherited Layout1: TLayout
+        inherited Layout2: TLayout
+          inherited EditEmail: TEdit
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited Layout3: TLayout
+          inherited EditSenha: TEdit
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+      end
+      inherited Layout11: TLayout
+        Position.Y = 1205.000000000000000000
+        Size.Width = 800.000000000000000000
+        inherited Layout15: TLayout
+          inherited Rectangle1: TRectangle
+            Fill.Kind = Gradient
+            Fill.Gradient.Points = <
+              item
+                Color = claFloralwhite
+                Offset = 0.000000000000000000
+              end
+              item
+                Color = claWhite
+                Offset = 1.000000000000000000
+              end>
+            Position.X = 48.000000000000000000
+          end
+        end
+      end
+    end
+    inherited TabConta: TTabItem
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      inherited Layout5: TLayout
+        inherited Layout6: TLayout
+          inherited EditNomeCad: TEdit
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited Layout7: TLayout
+          inherited EditTelefoneCad: TEdit
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited Layout9: TLayout
+          inherited EditEmailCadastro: TEdit
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+      end
+      inherited Layout17: TLayout
+        Position.Y = 1205.000000000000000000
+        Size.Width = 800.000000000000000000
+      end
+    end
+    inherited TabSenha: TTabItem
+      ExplicitSize.cx = 8.000000000000000000
+      ExplicitSize.cy = 8.000000000000000000
+      inherited Layout10: TLayout
+        inherited Layout12: TLayout
+          inherited EditConfirmarSenhaCad: TEdit
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited Layout14: TLayout
+          inherited EditSenhaCad: TEdit
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+      end
+      inherited Layout19: TLayout
+        Size.Width = 800.000000000000000000
+      end
+    end
+  end
+end

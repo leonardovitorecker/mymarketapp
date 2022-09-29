@@ -1,0 +1,14 @@
+program MyMarket;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  UnitLoginUsuario in 'UnitLoginUsuario.pas' {FrmLoginUsuario};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFrmLoginUsuario, FrmLoginUsuario);
+  Application.Run;
+end.

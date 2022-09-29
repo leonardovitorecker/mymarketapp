@@ -1,0 +1,85 @@
+unit cUsuario;
+
+interface
+ uses FireDAC.Comp.Client, FireDAC.DApt, System.SysUtils, FMX.Graphics;
+   type
+      TUsuario = class
+        private
+          Fconn: TFDConnection;
+          FID_USUARIO: integer;
+          FNOME: string;
+          FEMAIL: string;
+          FSENHA: string;
+          FFOTO: TBitmap;
+          FTELEFONE: string;
+        public
+            constructor Create(conn: TFDConnection);
+            property idUsuario: Integer read FID_USUARIO write FID_USUARIO;
+            property nome: string read FNOME write FNOME;
+            property email: string read FEMAIL write FEMAIL;
+            property senha: string read FSENHA write FSENHA;
+            property telefone: string read FTELEFONE write FTELEFONE;
+            property img_usuario: TBitmap read FFOTO write FFOTO;
+
+            function ListarUsuarios(out erro: string): TFDQuery;
+            function InserirUsuario(out erro: string): Boolean;
+      end;
+ implementation
+    {TUsuario}
+
+ constructor TUsuario.Create(conn: TFDConnection);
+ begin
+    Fconn := conn;
+ end;
+
+ function TUsuario.InserirUsuario(out erro: string): Boolean;
+ var
+    qry : TFDQuery;
+    begin
+     if (nome = '') or (email = '') or (then
+      try
+        qry := TFDQuery.Create(nil);
+        qry.Connection := Fconn;
+
+
+
+
+      end;
+    end;
+
+ function TUsuario.ListarUsuarios(out erro: string): TFDQuery;
+ var qry : TFDQuery;
+ begin
+   try
+     qry := TFDQuery.Create(nil);
+     qry.Connection := Fconn;
+
+     with qry do
+     begin
+       Active := false;
+       sql.Clear;
+       sql.Add('SELECT * FROM usuario');
+       sql.Add('WHERE 1 = 1 ');
+
+       if idUsuario >0  then
+       begin
+         SQL.Add('AND idUsuario = :idUsuario');
+         SQL.Add('AND senha = :senha');
+         ParamByName('idUsuario').Value := idUsuario;
+          ParamByName('senha').Value := senha;
+       end;
+
+       Active := true;
+     end;
+     Result := qry;
+     erro := '';
+
+     except on ex:exception do
+     begin
+       Result := nil;
+       erro := 'Erro ao consultar usuarios: ' + ex.Message;
+     end;
+
+   end;
+ end;
+end.

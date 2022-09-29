@@ -1,0 +1,131 @@
+object dm: Tdm
+  OldCreateOrder = False
+  Height = 210
+  Width = 333
+  object conn: TFDConnection
+    Params.Strings = (
+      'Database=C:\Users\LEONARDO\Documents\MyMarketapp\DB\MyMarket.db'
+      'OpenMode=ReadWrite'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    AfterConnect = connAfterConnect
+    BeforeConnect = connBeforeConnect
+    Left = 32
+    Top = 16
+  end
+  object FDQueryUsuario: TFDQuery
+    Connection = conn
+    SQL.Strings = (
+      'select * from usuario'
+      'where email =:pEmail')
+    Left = 120
+    Top = 16
+    ParamData = <
+      item
+        Name = 'PEMAIL'
+        DataType = ftString
+        ParamType = ptInput
+        Value = '1'
+      end>
+  end
+  object FDQueryProduto: TFDQuery
+    Connection = conn
+    SQL.Strings = (
+      'select * from produto')
+    Left = 208
+    Top = 16
+    object FDQueryProdutoid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQueryProdutonomeProduto: TStringField
+      FieldName = 'nomeProduto'
+      Origin = 'nomeProduto'
+      Size = 50
+    end
+    object FDQueryProdutoestoque: TIntegerField
+      FieldName = 'estoque'
+      Origin = 'estoque'
+    end
+    object FDQueryProdutovalorProduto: TBCDField
+      FieldName = 'valorProduto'
+      Origin = 'valorProduto'
+      Precision = 14
+      Size = 2
+    end
+    object FDQueryProdutolaboratorio: TStringField
+      FieldName = 'laboratorio'
+      Origin = 'laboratorio'
+      Size = 50
+    end
+    object FDQueryProdutoimg_produto: TBlobField
+      FieldName = 'img_produto'
+      Origin = 'img_produto'
+    end
+    object FDQueryProdutocarrinho: TIntegerField
+      FieldName = 'carrinho'
+      Origin = 'carrinho'
+    end
+  end
+  object FDQueryFavoritos: TFDQuery
+    Connection = conn
+    Left = 32
+    Top = 80
+  end
+  object FDQueryBuscaUsuario: TFDQuery
+    Connection = conn
+    SQL.Strings = (
+      'select * from usuario where '
+      'id =:pId')
+    Left = 120
+    Top = 96
+    ParamData = <
+      item
+        Name = 'PID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 2
+      end>
+    object FDQueryBuscaUsuarioid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryBuscaUsuarionome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryBuscaUsuariotelefone: TStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 13
+    end
+    object FDQueryBuscaUsuarioemail: TStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 60
+    end
+    object FDQueryBuscaUsuariosenha: TStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 40
+    end
+    object FDQueryBuscaUsuarioindlogin: TStringField
+      FieldName = 'indlogin'
+      Origin = 'indlogin'
+      Size = 10
+    end
+    object FDQueryBuscaUsuarioenderecoId: TIntegerField
+      FieldName = 'enderecoId'
+      Origin = 'enderecoId'
+    end
+    object FDQueryBuscaUsuarioimg_perfil: TBlobField
+      FieldName = 'img_perfil'
+      Origin = 'img_perfil'
+    end
+  end
+end

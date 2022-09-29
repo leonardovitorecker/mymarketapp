@@ -1,0 +1,833 @@
+unit UnitPrincipal;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit,
+  System.Actions, FMX.ActnList, FMX.TabControl, System.Math.Vectors,
+  FMX.Controls3D, FMX.Layers3D,
+   IOUtils,FMX.Ani,FMX.MultiView;
+
+type
+  TFrmPrincipal = class(TForm)
+    Layout1: TLayout;
+    Layout2: TLayout;
+    ImageHome: TImage;
+    ImageMenu: TImage;
+    ImageCarrinho: TImage;
+    ImagePerfil: TImage;
+    Layout4: TLayout;
+    Rectangle1: TRectangle;
+    Layout8: TLayout;
+    RoundRectPesquisar: TRoundRect;
+    Image5: TImage;
+    EditPesquisar: TEdit;
+    StyleBook1: TStyleBook;
+    ActionList1: TActionList;
+    ActHome: TChangeTabAction;
+    ActPerfil: TChangeTabAction;
+    ActCarrinho: TChangeTabAction;
+    ActMenu: TChangeTabAction;
+    TabControl1: TTabControl;
+    TabHome: TTabItem;
+    TabPerfil: TTabItem;
+    TabCarrinho: TTabItem;
+    TabMenu: TTabItem;
+    Layout5: TLayout;
+    Layout6: TLayout;
+    ImageactPerfilHome: TImage;
+    ImageActPerfilMenu: TImage;
+    ImageActPerfilCarrinho: TImage;
+    ImagePerfilactPerfil: TImage;
+    Layout7: TLayout;
+    Layout9: TLayout;
+    ImageActCarrinhoHome: TImage;
+    ImageActCarrinhoMenu: TImage;
+    ImageActCarrinhoCarrinho: TImage;
+    ImageActCarrinhoperfil: TImage;
+    Layout14: TLayout;
+    Rectangle3: TRectangle;
+    Layout15: TLayout;
+    RoundRect2: TRoundRect;
+    Image19: TImage;
+    Edit2: TEdit;
+    Layout16: TLayout;
+    Rectangle4: TRectangle;
+    Layout17: TLayout;
+    RoundRect3: TRoundRect;
+    Image20: TImage;
+    Edit3: TEdit;
+    Layout18: TLayout;
+    RetanguloMeusDados: TRectangle;
+    Circle1: TCircle;
+    Label1: TLabel;
+    Layout19: TLayout;
+    Label2: TLabel;
+    Layout20: TLayout;
+    Image21: TImage;
+    Label3: TLabel;
+    Image22: TImage;
+    Layout21: TLayout;
+    RectanguleEndereco: TRectangle;
+    Image23: TImage;
+    Label4: TLabel;
+    Image24: TImage;
+    Layout24: TLayout;
+    Layout25: TLayout;
+    Circle2: TCircle;
+    Label5: TLabel;
+    Label6: TLabel;
+    LayoutPedidos: TLayout;
+    Layout28: TLayout;
+    Layout29: TLayout;
+    ImageActMenuHome: TImage;
+    ImageActMenuMenu: TImage;
+    ImageActMenuCarrinho: TImage;
+    ImageActMenuPerfil: TImage;
+    Label7: TLabel;
+    Image14: TImage;
+    Image15: TImage;
+    LayoutSair: TLayout;
+    Label8: TLabel;
+    Image16: TImage;
+    Image17: TImage;
+    LayoutTempoEntrega: TLayout;
+    Label9: TLabel;
+    Image18: TImage;
+    Image25: TImage;
+    LayoutSobreNos: TLayout;
+    Label10: TLabel;
+    Image26: TImage;
+    Image27: TImage;
+    LayoutFormasPagamento: TLayout;
+    Label11: TLabel;
+    Image28: TImage;
+    Image29: TImage;
+    Line1: TLine;
+    Line2: TLine;
+    Line3: TLine;
+    Line4: TLine;
+    Line5: TLine;
+    Line6: TLine;
+    Layout10: TLayout;
+    Rectangle2: TRectangle;
+    Action1: TAction;
+    Label12: TLabel;
+    Image34: TImage;
+    TabEditarPerfil: TTabItem;
+    Rectangle5: TRectangle;
+    Layout11: TLayout;
+    RoundRect1: TRoundRect;
+    Image35: TImage;
+    Edit1: TEdit;
+    Layout12: TLayout;
+    Layout13: TLayout;
+    ImageActEdPerfilHome: TImage;
+    ImageEdPerfilMenu: TImage;
+    ImageEdPerfilCarrinho: TImage;
+    ImageEdPerfilPerfil: TImage;
+    Layout22: TLayout;
+    Label13: TLabel;
+    ImageVoltar: TImage;
+    Layout23: TLayout;
+    Layout26: TLayout;
+    EditNome: TEdit;
+    Label14: TLabel;
+    Edit5: TEdit;
+    Label15: TLabel;
+    EditNcelular: TEdit;
+    Label16: TLabel;
+    Editcpf: TEdit;
+    Label17: TLabel;
+    RoundRect4: TRoundRect;
+    Confirmar: TLabel;
+    TabMeusEnderecos: TTabItem;
+    Rectangle6: TRectangle;
+    Layout27: TLayout;
+    RoundRect5: TRoundRect;
+    Image41: TImage;
+    Edit8: TEdit;
+    TabEditarEndereco: TTabItem;
+    Rectangle7: TRectangle;
+    Layout30: TLayout;
+    RoundRect6: TRoundRect;
+    Image42: TImage;
+    Edit9: TEdit;
+    Layout31: TLayout;
+    Layout32: TLayout;
+    Layout33: TLayout;
+    ImageActMEdiHome: TImage;
+    ImageActMEdiMenu: TImage;
+    ImageActMEdiCarrinho: TImage;
+    ImageActMEdiPerfil: TImage;
+    Layout34: TLayout;
+    Layout35: TLayout;
+    ImageActEditEndHome: TImage;
+    ImageActEditEndMenu: TImage;
+    ImageActEditEndCarrinho: TImage;
+    ImageActEditEndPerfil: TImage;
+    Layout36: TLayout;
+    Layout37: TLayout;
+    Image51: TImage;
+    Label18: TLabel;
+    EditNCasa: TEdit;
+    Label20: TLabel;
+    EditRua: TEdit;
+    Label21: TLabel;
+    EditBairro: TEdit;
+    Label22: TLabel;
+    EditCidade: TEdit;
+    Label23: TLabel;
+    EditComplemento: TEdit;
+    Label19: TLabel;
+    RoundRectCadastrarEndereco: TRoundRect;
+    Label24: TLabel;
+
+    TabCadastrarEndereco: TTabItem;
+    Rectangle8: TRectangle;
+    Layout38: TLayout;
+    RoundRect8: TRoundRect;
+    Image52: TImage;
+    Edit15: TEdit;
+    Layout39: TLayout;
+    Layout40: TLayout;
+    ImageCadEndHome: TImage;
+    ImageActCadEndMenu: TImage;
+    ImageActCadEndCarrinho: TImage;
+    ImageActCadEndPerfil: TImage;
+    Layout41: TLayout;
+    Layout42: TLayout;
+    Layout43: TLayout;
+    Image57: TImage;
+    Label25: TLabel;
+    Edit16: TEdit;
+    Label26: TLabel;
+    Edit17: TEdit;
+    Label27: TLabel;
+    Edit18: TEdit;
+    Label28: TLabel;
+    Edit19: TEdit;
+    Label29: TLabel;
+    Edit20: TEdit;
+    Label30: TLabel;
+    RoundRect9: TRoundRect;
+    Label31: TLabel;
+    VertScrollBoxListaProdutos:TVertScrollBox;
+    TabProdutoExpandido: TTabItem;
+    Rectangle9: TRectangle;
+    Layout44: TLayout;
+    RoundRect10: TRoundRect;
+    Image58: TImage;
+    Edit21: TEdit;
+    Layout45: TLayout;
+    Layout46: TLayout;
+    Layout47: TLayout;
+    RoundRect11: TRoundRect;
+    Label32: TLabel;
+    Label33: TLabel;
+    Imagemenosum: TImage;
+    Imagemaisum: TImage;
+    Layout48: TLayout;
+    Layout49: TLayout;
+    Image59: TImage;
+    q: TLabel;
+    Layout50: TLayout;
+    ImageProduto: TImage;
+    Layout51: TLayout;
+    Label34: TLabel;
+    Layout52: TLayout;
+    Layout53: TLayout;
+    Label35: TLabel;
+    Label36: TLabel;
+    Label37: TLabel;
+    ActEditPerfil: TChangeTabAction;
+
+    ActMeusEnderecos: TChangeTabAction;
+    ActEditEndereco: TChangeTabAction;
+    ActProdExpandido: TChangeTabAction;
+    VertScrollBoxMeusEnderecos: TVertScrollBox;
+    VertScrollBox1: TVertScrollBox;
+
+    procedure FormCreate(Sender: TObject);
+
+    procedure RetanguloMeusDadosClick(Sender: TObject);
+    procedure RectanguleEnderecoClick(Sender: TObject);
+    procedure ImageHomeClick(Sender: TObject);
+    procedure ImagePerfilClick(Sender: TObject);
+    procedure ImageCarrinhoClick(Sender: TObject);
+    procedure ImageMenuClick(Sender: TObject);
+    procedure ImageactPerfilHomeClick(Sender: TObject);
+    procedure ImagePerfilactPerfilClick(Sender: TObject);
+    procedure ImageActPerfilCarrinhoClick(Sender: TObject);
+    procedure ImageActPerfilMenuClick(Sender: TObject);
+    procedure ImageActCarrinhoHomeClick(Sender: TObject);
+    procedure ImageActCarrinhoperfilClick(Sender: TObject);
+    procedure ImageActCarrinhoCarrinhoClick(Sender: TObject);
+    procedure ImageActCarrinhoMenuClick(Sender: TObject);
+    procedure ImageActMenuHomeClick(Sender: TObject);
+    procedure ImageActMenuPerfilClick(Sender: TObject);
+    procedure ImageActMenuCarrinhoClick(Sender: TObject);
+    procedure ImageActMenuMenuClick(Sender: TObject);
+    procedure ImageActEdPerfilHomeClick(Sender: TObject);
+    procedure ImageEdPerfilPerfilClick(Sender: TObject);
+    procedure ImageEdPerfilCarrinhoClick(Sender: TObject);
+    procedure ImageEdPerfilMenuClick(Sender: TObject);
+    procedure ImageVoltarClick(Sender: TObject);
+    procedure ImageActMEdiHomeClick(Sender: TObject);
+    procedure ImageActMEdiPerfilClick(Sender: TObject);
+    procedure ImageActMEdiCarrinhoClick(Sender: TObject);
+    procedure ImageActMEdiMenuClick(Sender: TObject);
+    procedure ImageCadEndHomeClick(Sender: TObject);
+    procedure ImageActCadEndPerfilClick(Sender: TObject);
+    procedure ImageActCadEndCarrinhoClick(Sender: TObject);
+    procedure ImageActCadEndMenuClick(Sender: TObject);
+    procedure Image57Click(Sender: TObject);
+    procedure Image59Click(Sender: TObject);
+    procedure Image51Click(Sender: TObject);
+    procedure ImageActEditEndHomeClick(Sender: TObject);
+    procedure ImageActEditEndPerfilClick(Sender: TObject);
+    procedure ImageActEditEndCarrinhoClick(Sender: TObject);
+    procedure ImageActEditEndMenuClick(Sender: TObject);
+    procedure RoundRect4Click(Sender: TObject);
+    procedure RoundRectCadastrarEnderecoClick(Sender: TObject);
+
+
+  private
+    { Private declarations }
+     procedure CarregarListaProdutos(id: integer; nome: string; estoque: integer;laboratorio: string;
+      valor: double);
+      procedure CarregarListaProdutoss(id: integer; nome: string; estoque: integer;laboratorio: string;
+      valor: double);
+       procedure GetProdutosBase;
+       procedure CarregaListaEnderecos (id: Integer; rua: string;
+       bairro: string; usuarioId: Integer);
+       procedure GetEnderecosBase;
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPrincipal: TFrmPrincipal;
+
+implementation
+
+{$R *.fmx}
+ uses UnitDM, UnitLoginUsuario;
+
+ procedure TFrmPrincipal.CarregaListaEnderecos(id: Integer; rua: string;
+  bairro: string;usuarioId: Integer);
+  var rect,  rect_barra : TRectangle;
+  lbl:TLabel;
+  begin
+    rect := TRectangle.Create(VertScrollBoxMeusEnderecos);
+    with rect do
+     begin
+      Align := TAlignLayout.Top;
+      Height := 137;
+      Fill.Color := $FFFFFFFF;
+      Stroke.Kind := TBrushKind.Solid;
+      Stroke.Color := $FFD4D5D7;
+      Margins.Top := 10;
+      Margins.Left :=35;
+      Margins.Right := 35;
+      XRadius := 8;
+      YRadius := 8;
+      TagString := IntToStr(id);
+    end;
+
+    rect_barra :=TRectangle.Create(rect);
+     with rect_barra do
+  begin
+    Align := TAlignLayout.Bottom;
+    Height := 45;
+    Fill.Color := $FFE0E0E0;
+    Stroke.Kind := TBrushKind.Solid;
+    Stroke.Color := $FFE0E0E0;
+    Sides := [TSide.Left, TSide.Bottom, TSide.Right];
+    XRadius := 8;
+    YRadius := 8;
+    Corners := [TCorner.BottomLeft, TCorner.BottomRight];
+    HitTest := False;
+    rect.AddObject(rect_barra);
+  end;
+  rect := TRectangle.Create(VertScrollBoxMeusEnderecos);
+  with rect do
+  begin
+    Align := TAlignLayout.Top;
+    Height := 110;
+    Fill.Color := $FFE0E0E0;
+    Stroke.Kind := TBrushKind.Solid;
+    Stroke.Color := $FFE0E0E0;
+    Margins.Top := 10;
+    Margins.Left := 35;
+    Margins.Right := 35;
+    Margins.Bottom :=25;
+    XRadius := 8;
+    YRadius := 8;
+  end;
+   rect_barra := TRectangle.Create(rect);
+  with rect_barra do
+  begin
+    Align := TAlignLayout.Bottom;
+    Height := 45;
+    Fill.Color := $FFE0E0E0;
+    Stroke.Kind := TBrushKind.Solid;
+    Stroke.Color := $FFE0E0E0;
+    Sides := [TSide.Left, TSide.Bottom, TSide.Right];
+    XRadius := 8;
+    YRadius := 8;
+    Corners := [TCorner.BottomLeft, TCorner.BottomRight];
+    HitTest := False;
+    rect.AddObject(rect_barra);
+  end;
+  lbl := TLabel.Create(rect);
+  with lbl do
+  begin
+    StyledSettings := StyledSettings - [TStyledSetting.Size,
+      TStyledSetting.FontColor, TStyledSetting.Style];
+    TextSettings.FontColor := $FF333333;
+    Text := rua;
+    font.Size := 16;
+    font.Style := [TFontStyle.fsBold];
+    Position.x := 50;
+    Position.Y := 10;
+    Width := 200;
+    rect.AddObject(lbl);
+  end;
+  lbl := TLabel.Create(rect_barra);
+  with lbl do
+  begin
+    StyledSettings := StyledSettings - [TStyledSetting.Size,
+      TStyledSetting.FontColor, TStyledSetting.Style];
+    TextSettings.FontColor := $FFDF0B0B;
+    Text := bairro;
+    font.Size := 11;
+    font.Style := [TFontStyle.fsBold];
+    Position.x := 5;
+    Position.Y := 70;
+    Width := 500;
+    rect.AddObject(lbl);
+  end;
+
+        VertScrollBoxMeusEnderecos.AddObject(rect);
+  end;
+
+ procedure TFrmPrincipal.CarregarListaProdutos(id: Integer; nome: string;
+  estoque: integer;laboratorio: string; valor: Double);
+  var rect, rect_barra: TRectangle;
+  rect_icone: TCircle;
+  lbl: TLabel;
+  img : TImage;
+
+  i, valorEstrela: integer;
+  begin
+
+    rect := TRectangle.Create(VertScrollBoxListaProdutos);
+    with rect do
+    begin
+      Align := TAlignLayout.Top;
+      Height := 137;
+      Fill.Color := $FFFFFFFF;
+      Stroke.Kind := TBrushKind.Solid;
+      Stroke.Color := $FFD4D5D7;
+      Margins.Top := 10;
+      Margins.Left :=35;
+      Margins.Right := 35;
+      XRadius := 8;
+      YRadius := 8;
+      TagString := IntToStr(id);
+    end;
+
+    rect_barra :=TRectangle.Create(rect);
+     with rect_barra do
+  begin
+    Align := TAlignLayout.Bottom;
+    Height := 45;
+    Fill.Color := $FFE0E0E0;
+    Stroke.Kind := TBrushKind.Solid;
+    Stroke.Color := $FFE0E0E0;
+    Sides := [TSide.Left, TSide.Bottom, TSide.Right];
+    XRadius := 8;
+    YRadius := 8;
+    Corners := [TCorner.BottomLeft, TCorner.BottomRight];
+    HitTest := False;
+    rect.AddObject(rect_barra);
+  end;
+
+   rect := TRectangle.Create(VertScrollBoxListaProdutos);
+  with rect do
+  begin
+    Align := TAlignLayout.Top;
+    Height := 110;
+    Fill.Color := $FFE0E0E0;
+    Stroke.Kind := TBrushKind.Solid;
+    Stroke.Color := $FFE0E0E0;
+    Margins.Top := 10;
+    Margins.Left := 35;
+    Margins.Right := 35;
+    Margins.Bottom :=25;
+    XRadius := 8;
+    YRadius := 8;
+  end;
+  // Barra inferior...
+  rect_barra := TRectangle.Create(rect);
+  with rect_barra do
+  begin
+    Align := TAlignLayout.Bottom;
+    Height := 45;
+    Fill.Color := $FFE0E0E0;
+    Stroke.Kind := TBrushKind.Solid;
+    Stroke.Color := $FFE0E0E0;
+    Sides := [TSide.Left, TSide.Bottom, TSide.Right];
+    XRadius := 8;
+    YRadius := 8;
+    Corners := [TCorner.BottomLeft, TCorner.BottomRight];
+    HitTest := False;
+    rect.AddObject(rect_barra);
+  end;
+
+  lbl := TLabel.Create(rect);
+  with lbl do
+  begin
+    StyledSettings := StyledSettings - [TStyledSetting.Size,
+      TStyledSetting.FontColor, TStyledSetting.Style];
+    TextSettings.FontColor := $FF333333;
+    Text := nome;
+    font.Size := 16;
+    font.Style := [TFontStyle.fsBold];
+    Position.x := 50;
+    Position.Y := 10;
+    Width := 200;
+    rect.AddObject(lbl);
+  end;
+
+  lbl := TLabel.Create(rect_barra);
+  with lbl do
+  begin
+    StyledSettings := StyledSettings - [TStyledSetting.Size,
+      TStyledSetting.FontColor, TStyledSetting.Style];
+    TextSettings.FontColor := $FFDF0B0B;
+    Text := laboratorio;
+    font.Size := 11;
+    font.Style := [TFontStyle.fsBold];
+    Position.x := 5;
+    Position.Y := 70;
+    Width := 500;
+    rect.AddObject(lbl);
+  end;
+
+  lbl := TLabel.Create(rect_barra);
+  with lbl do
+  begin
+    StyledSettings := StyledSettings - [TStyledSetting.Size,
+      TStyledSetting.FontColor, TStyledSetting.Style];
+    TextSettings.FontColor := $FFDF0B0B;
+    Text := FloatToStr(valor);
+    font.Size := 11;
+    font.Style := [TFontStyle.fsBold];
+    Position.x := 5;
+    Position.Y := 85;
+    Width := 500;
+    rect.AddObject(lbl);
+  end;
+   VertScrollBoxListaProdutos.AddObject(rect);
+  end;
+
+  procedure TFrmPrincipal.CarregarListaProdutoss(id: Integer; nome: string;
+  estoque: integer;laboratorio: string; valor: Double);
+
+  procedure TFrmPrincipal.FormCreate(Sender: TObject);
+  begin
+     ActHome.Execute;
+     GetProdutosBase;
+  end;
+
+  procedure TFrmPrincipal.GetEnderecosBase;
+  begin
+    dm.FDQueryEndereco.Close;
+    dm.FDQueryEndereco.Open();
+    dm.FDQueryEndereco.ParamByName('pID').AsInteger := FrmLoginUsuario.idGlobal  ;
+
+    while not dm.FDQueryEndereco.Eof  do
+    begin
+      CarregaListaEnderecos(dm.FDQueryEnderecoid.AsInteger,
+      dm.FDQueryEnderecoRua.AsString, dm.FDQueryEnderecoBairro.AsString,
+      dm.FDQueryEnderecousuarioId.AsInteger);
+      dm.FDQueryEndereco.next;
+
+    end;
+  end;
+  procedure TFrmPrincipal.GetProdutosBase;
+  begin
+    dm.FDQueryProduto.Close;
+    dm.FDQueryProduto.Open();
+    while not dm.FDQueryProduto.Eof do
+     begin
+       CarregarListaProdutos(dm.FDQueryProdutoid.AsInteger,
+        dm.FDQueryProdutonomeProduto.AsString,dm.FDQueryProdutoestoque.AsInteger,
+        dm.FDQueryProdutolaboratorio.AsString, dm.FDQueryProdutovalorProduto.AsFloat);
+        dm.FDQueryProduto.next;
+
+     end;
+  end;
+procedure TFrmPrincipal.ImageVoltarClick(Sender: TObject);
+begin
+      actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.Image51Click(Sender: TObject);
+begin
+ActPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.Image57Click(Sender: TObject);
+begin
+    actMeusEnderecos.Execute;
+end;
+
+procedure TFrmPrincipal.Image59Click(Sender: TObject);
+begin
+      actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActCadEndCarrinhoClick(Sender: TObject);
+begin
+    actCarrinho.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActCadEndMenuClick(Sender: TObject);
+begin
+    actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActCadEndPerfilClick(Sender: TObject);
+begin
+     actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActCarrinhoCarrinhoClick(Sender: TObject);
+begin
+       actCarrinho.Execute;
+
+end;
+
+procedure TFrmPrincipal.ImageActCarrinhoHomeClick(Sender: TObject);
+begin
+      actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActCarrinhoMenuClick(Sender: TObject);
+begin
+     actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActCarrinhoperfilClick(Sender: TObject);
+begin
+      actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActEditEndCarrinhoClick(Sender: TObject);
+begin
+    actCarrinho.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActEditEndHomeClick(Sender: TObject);
+begin
+     actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActEditEndMenuClick(Sender: TObject);
+begin
+    actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActEditEndPerfilClick(Sender: TObject);
+begin
+    actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActEdPerfilHomeClick(Sender: TObject);
+begin
+     actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMEdiCarrinhoClick(Sender: TObject);
+begin
+    actCarrinho.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMEdiHomeClick(Sender: TObject);
+begin
+   actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMEdiMenuClick(Sender: TObject);
+begin
+    actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMEdiPerfilClick(Sender: TObject);
+begin
+    actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMenuCarrinhoClick(Sender: TObject);
+begin
+     actCarrinho.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMenuHomeClick(Sender: TObject);
+begin
+     actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMenuMenuClick(Sender: TObject);
+begin
+      actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActMenuPerfilClick(Sender: TObject);
+begin
+     actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActPerfilCarrinhoClick(Sender: TObject);
+begin
+      actCarrinho.Execute;
+end;
+
+procedure TFrmPrincipal.ImageactPerfilHomeClick(Sender: TObject);
+begin
+      actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageActPerfilMenuClick(Sender: TObject);
+begin
+    actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImageCadEndHomeClick(Sender: TObject);
+begin
+    actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageCarrinhoClick(Sender: TObject);
+begin
+   actCarrinho.Execute;
+end;
+
+procedure TFrmPrincipal.ImageEdPerfilCarrinhoClick(Sender: TObject);
+begin
+    actCarrinho.Execute;
+end;
+
+procedure TFrmPrincipal.ImageEdPerfilMenuClick(Sender: TObject);
+begin
+    actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImageEdPerfilPerfilClick(Sender: TObject);
+begin
+    actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.ImageHomeClick(Sender: TObject);
+begin
+   actHome.Execute;
+end;
+
+procedure TFrmPrincipal.ImageMenuClick(Sender: TObject);
+begin
+     actMenu.Execute;
+end;
+
+procedure TFrmPrincipal.ImagePerfilactPerfilClick(Sender: TObject);
+begin
+     actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.ImagePerfilClick(Sender: TObject);
+begin
+     actPerfil.Execute;
+end;
+
+procedure TFrmPrincipal.RectanguleEnderecoClick(Sender: TObject);
+begin
+dm.FDQueryBuscaUsuario.Close;
+dm.FDQueryBuscaUsuario.Open();
+dm.FDQueryBuscaUsuario.ParamByName('pID').AsInteger := FrmLoginUsuario.idGlobal  ;
+
+if(dm.FDQueryBuscaUsuariousuarioId.AsString <> EmptyStr) then
+begin
+ActMeusEnderecos.Execute;
+ GetEnderecosBase;
+
+end
+else
+begin
+  ActEditEndereco.Execute;
+end;
+end;
+
+procedure TFrmPrincipal.RetanguloMeusDadosClick(Sender: TObject);
+var
+id: integer;
+begin
+
+    dm.FDQueryBuscaUsuario.Close;
+    dm.FDQueryBuscaUsuario.Open();
+     dm.FDQueryBuscaUsuario.ParamByName('pID').AsInteger := FrmLoginUsuario.idGlobal;
+
+      EditNome.Text:= dm.FDQueryUsuarioNome.AsString ;
+      Editcpf.Text := dm.FDQueryUsuariocpf.AsString;
+      EditNcelular.Text := dm.FDQueryUsuarioTelefone.AsString;
+      Edit5.Text := dm.FDQueryUsuarioEmail.AsString;
+      Edit5.Enabled:=false;
+       actEditPerfil.Execute;
+
+end;
+
+procedure TFrmPrincipal.RoundRect4Click(Sender: TObject);
+begin
+
+      dm.FDQueryUsuario.Edit;
+       dm.FDQueryUsuarioNome.AsString := EditNome.Text;
+       dm.FDQueryUsuariocpf.AsString := Editcpf.Text;
+      dm.FDQueryUsuarioTelefone.AsString := EditNcelular.Text;
+
+      dm.FDQueryUsuario.Post;
+
+
+      dm.conn.CommitRetaining;
+end;
+
+procedure TFrmPrincipal.RoundRectCadastrarEnderecoClick(Sender: TObject);
+begin
+dm.FDQueryEndereco.close;
+dm.FDQueryEndereco.open;
+dm.FDQueryUsuario.close;
+dm.FDQueryUsuario.open;
+
+
+dm.FDQueryUsuario.Edit;
+
+dm.FDQueryEndereco.Append;
+
+      dm.FDQueryEnderecoRua.AsString := EditRua.Text;
+      dm.FDQueryEnderecoNumeroCasa.AsString := EditNCasa.Text;
+      dm.FDQueryEnderecoComplemento.AsString := EditComplemento.Text;
+      dm.FDQueryEnderecoCidade.AsString := EditCidade.Text;
+      dm.FDQueryEnderecoBairro.AsString := EditBairro.Text;
+       dm.FDQueryEnderecousuarioId.AsInteger :=  FrmLoginUsuario.idGlobal;
+      dm.FDQueryEndereco.Post;
+
+
+
+      dm.conn.CommitRetaining;
+end;
+
+
+end.

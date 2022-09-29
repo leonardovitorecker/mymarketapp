@@ -1,0 +1,335 @@
+object dm: Tdm
+  OldCreateOrder = False
+  Height = 210
+  Width = 333
+  object conn: TFDConnection
+    Params.Strings = (
+      'Database=C:\Users\LEONARDO\Documents\MyMarketapp\DB\MyMarket.db'
+      'OpenMode=ReadWrite'
+      'LockingMode=Normal'
+      'DriverID=SQLite')
+    Connected = True
+    AfterConnect = connAfterConnect
+    BeforeConnect = connBeforeConnect
+    Left = 32
+    Top = 16
+  end
+  object FDQueryUsuario: TFDQuery
+    Connection = conn
+    SQL.Strings = (
+      'select * from usuario'
+      'where email =:pEmail')
+    Left = 120
+    Top = 16
+    ParamData = <
+      item
+        Name = 'PEMAIL'
+        DataType = ftString
+        ParamType = ptInput
+        Value = '1'
+      end>
+    object FDQueryUsuarioid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryUsuarionome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryUsuariotelefone: TStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 13
+    end
+    object FDQueryUsuarioemail: TStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 60
+    end
+    object FDQueryUsuariosenha: TStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 40
+    end
+    object FDQueryUsuariocpf: TStringField
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      Size = 10
+    end
+    object FDQueryUsuarioimg_perfil: TBlobField
+      FieldName = 'img_perfil'
+      Origin = 'img_perfil'
+    end
+  end
+  object FDQueryProduto: TFDQuery
+    Connection = conn
+    SQL.Strings = (
+      'select * from produto')
+    Left = 208
+    Top = 16
+    object FDQueryProdutoid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object FDQueryProdutonomeProduto: TStringField
+      FieldName = 'nomeProduto'
+      Origin = 'nomeProduto'
+      Size = 50
+    end
+    object FDQueryProdutoestoque: TIntegerField
+      FieldName = 'estoque'
+      Origin = 'estoque'
+    end
+    object FDQueryProdutovalorProduto: TBCDField
+      FieldName = 'valorProduto'
+      Origin = 'valorProduto'
+      Precision = 14
+      Size = 2
+    end
+    object FDQueryProdutolaboratorio: TStringField
+      FieldName = 'laboratorio'
+      Origin = 'laboratorio'
+      Size = 50
+    end
+    object FDQueryProdutoimg_produto: TBlobField
+      FieldName = 'img_produto'
+      Origin = 'img_produto'
+    end
+    object FDQueryProdutocarrinho: TIntegerField
+      FieldName = 'carrinho'
+      Origin = 'carrinho'
+    end
+  end
+  object FDQueryFavoritos: TFDQuery
+    Connection = conn
+    Left = 32
+    Top = 80
+  end
+  object FDQueryBuscaUsuario: TFDQuery
+    Connection = conn
+    SQL.Strings = (
+      'select * from usuario inner join endereco'
+      'on endereco.usuarioId = usuario.id where '
+      'endereco.usuarioId=:pId')
+    Left = 120
+    Top = 96
+    ParamData = <
+      item
+        Name = 'PID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object FDQueryBuscaUsuarioid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryBuscaUsuarionome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 40
+    end
+    object FDQueryBuscaUsuariotelefone: TStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 13
+    end
+    object FDQueryBuscaUsuarioemail: TStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 60
+    end
+    object FDQueryBuscaUsuariosenha: TStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 40
+    end
+    object FDQueryBuscaUsuariocpf: TStringField
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      Size = 10
+    end
+    object FDQueryBuscaUsuarioimg_perfil: TBlobField
+      FieldName = 'img_perfil'
+      Origin = 'img_perfil'
+    end
+    object FDQueryBuscaUsuarioid_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'id_1'
+      Origin = 'id'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryBuscaUsuariocidade: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cidade'
+      Origin = 'cidade'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 60
+    end
+    object FDQueryBuscaUsuariorua: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'rua'
+      Origin = 'rua'
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 11
+    end
+    object FDQueryBuscaUsuariocep: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cep'
+      Origin = 'cep'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 10
+    end
+    object FDQueryBuscaUsuariobairro: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'bairro'
+      Origin = 'bairro'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 60
+    end
+    object FDQueryBuscaUsuariocomplemento: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 60
+    end
+    object FDQueryBuscaUsuarionumeroCasa: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'numeroCasa'
+      Origin = 'numeroCasa'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 6
+    end
+    object FDQueryBuscaUsuariousuarioId: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'usuarioId'
+      Origin = 'usuarioId'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+  object FDQueryEndereco: TFDQuery
+    Connection = conn
+    SQL.Strings = (
+      'select * from endereco inner join usuario'
+      'on usuario.id = endereco.usuarioId where '
+      'endereco.usuarioId=:pId')
+    Left = 224
+    Top = 88
+    ParamData = <
+      item
+        Name = 'PID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 2
+      end>
+    object FDQueryEnderecoid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQueryEnderecocidade: TStringField
+      FieldName = 'cidade'
+      Origin = 'cidade'
+      Size = 60
+    end
+    object FDQueryEnderecorua: TStringField
+      FieldName = 'rua'
+      Origin = 'rua'
+      FixedChar = True
+      Size = 11
+    end
+    object FDQueryEnderecocep: TStringField
+      FieldName = 'cep'
+      Origin = 'cep'
+      Size = 10
+    end
+    object FDQueryEnderecobairro: TStringField
+      FieldName = 'bairro'
+      Origin = 'bairro'
+      Size = 60
+    end
+    object FDQueryEnderecocomplemento: TStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 60
+    end
+    object FDQueryEndereconumeroCasa: TStringField
+      FieldName = 'numeroCasa'
+      Origin = 'numeroCasa'
+      Size = 6
+    end
+    object FDQueryEnderecousuarioId: TIntegerField
+      FieldName = 'usuarioId'
+      Origin = 'usuarioId'
+    end
+    object FDQueryEnderecoid_1: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'id_1'
+      Origin = 'id'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object FDQueryEndereconome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nome'
+      Origin = 'nome'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 40
+    end
+    object FDQueryEnderecotelefone: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 13
+    end
+    object FDQueryEnderecoemail: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'email'
+      Origin = 'email'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 60
+    end
+    object FDQueryEnderecosenha: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'senha'
+      Origin = 'senha'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 40
+    end
+    object FDQueryEnderecocpf: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 10
+    end
+    object FDQueryEnderecoimg_perfil: TBlobField
+      AutoGenerateValue = arDefault
+      FieldName = 'img_perfil'
+      Origin = 'img_perfil'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+end
